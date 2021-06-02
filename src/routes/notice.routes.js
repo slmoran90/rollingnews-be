@@ -5,7 +5,13 @@ const router = Router();
 
 router
 	.route('/')
-	.get(noticeCtrl.getTest)
+	.get(noticeCtrl.listNotices)
 	.post(noticeCtrl.newNotice);
+
+router
+	.route('/:id')
+	.delete(noticeCtrl.deleteNotice)
+	.put(noticeCtrl.editNotice)
+	.get(noticeCtrl.getNews);
 
 export default router;

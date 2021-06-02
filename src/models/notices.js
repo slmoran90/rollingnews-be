@@ -20,13 +20,13 @@ const noticeSchema = new Schema({
 	},
 	imagenPrincipal: {
 		type: String,
-		required: true,
-		unique: true
+		required: true
+		// unique: true
 	},
 	categoria: {
 		type: String,
-		required: true,
-		unique: true
+		required: true
+		// unique: true
 	},
 	autorNoticia: {
 		type: String,
