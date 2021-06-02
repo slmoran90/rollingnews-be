@@ -5,7 +5,7 @@ const router = Router();
 
 router
 	.route('/')
-	.get(categoryCtrl.getTest)
+	.get(categoryCtrl.getCategory)
 	.post(categoryCtrl.newCategory);
 
 export default router;
