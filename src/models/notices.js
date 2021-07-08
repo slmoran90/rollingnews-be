@@ -23,6 +23,9 @@ const noticeSchema = new Schema({
 		required: true
 		// unique: true
 	},
+	imagenSec: {
+		type: String
+	},
 	categoria: {
 		type: String,
 		required: true

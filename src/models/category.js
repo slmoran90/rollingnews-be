@@ -5,11 +5,6 @@ const categorySchema = new Schema({
 		type: String,
 		required: true,
 		unique: true
-	},
-	descripCategoria: {
-		type: String,
-		required: true,
-		unique: true
 	}
 });
 

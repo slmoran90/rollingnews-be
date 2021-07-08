@@ -9,6 +9,7 @@ noticeCtrl.newNotice = async (req, res) =>{
 			noticiaBreve: req.body.noticiaBreve,
 			noticiaDetallada: req.body.noticiaDetallada,
 			imagenPrincipal: req.body.imagenPrincipal,
+			imagenSec: req.body.imagenSec,
 			categoria: req.body.categoria,
 			autorNoticia: req.body.autorNoticia,
 			fechaNoticia: req.body.fechaNoticia,
@@ -17,13 +18,13 @@ noticeCtrl.newNotice = async (req, res) =>{
 
 		await new_Notice.save();
 		res.status(201).json({
-			msg: 'La noticia se cargo con exito.'
+			msg: 'La noticia se guardó con éxito.'
 		});
 	}
 	catch(error){
 		console.log(error);
 		res.status(500).json({
-			msg: 'error al cargar una noticia nueva'
+			msg: 'Error: no pudo guardarse la noticia.'
 		});
 	}
 };
@@ -36,7 +37,7 @@ noticeCtrl.listNotices = async (req, res)=>{
 	catch(error){
 		console.log(error);
 		res.status(404).json({
-			msg: 'error al enviar las noticias'
+			msg: 'Error: No se encontraron Noticias.'
 		});
 	}
 };
@@ -45,33 +46,34 @@ noticeCtrl.deleteNotice = async (req, res)=> {
 	try{
 		await Notice.findByIdAndDelete(req.params.id);
 		res.status(200).json({
-			msg: 'TODO OK. se elimino el objeto.'
+			msg: 'La noticia seleccionada fue Eliminada.'
 		});
 	}
 	catch(error){
 		console.log(error);
 		res.status(404).json({
-			msg: 'no se encontro el objeto.'
+			msg: 'Error: No se pudo eliminar la noticia seleccionada.'
 		});
 	}
 }
 
+// funcion editar PUT una noticia 
 noticeCtrl.editNotice = async (req, res)=> {
 	try{
 		await Notice.findByIdAndUpdate(req.params.id, req.body);
 		res.status(200).json({
-			msg: 'Todo OK'
+			msg: 'La noticia seleccionada fue modificada.'
 		});
 	}
 	catch(error){
 		console.log(error);
 		res.status(404).json({
-			msg: 'no se encontro el objeto.'
+			msg: 'Error: No se pudo modificar la noticia seleccionada.'
 		});
 	}
 }
 
-noticeCtrl.getNews = async (req, res)=>{
+noticeCtrl.getNotice = async (req, res)=>{
 	try{
 		const findNotice = await Notice.findById(req.params.id);
 		res.status(200).json(findNotice);
@@ -79,9 +81,22 @@ noticeCtrl.getNews = async (req, res)=>{
 	catch(error){
 		console.log(error);
 		res.status(404).json({
-			msg: 'no se encuentra el objeto.'
+			msg: 'Error: No se encontró la noticia con el ID seleccionado.'
 		});
 	}
+}
+
+noticeCtrl.findCategory = async (req, res)=>{
+    try{
+        const list = await Notice.find({categoria: req.params.categoria});
+        res.status(200).json(list);
+    }
+    catch(error){
+        console.log(error);
+        res.status(404).json({
+            msg: 'Error: No se encontraron noticias para la Categoria seleccionada.'
+        })
+    }
 }
 
 export default noticeCtrl;

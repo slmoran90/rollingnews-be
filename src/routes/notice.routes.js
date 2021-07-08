@@ -9,9 +9,14 @@ router
 	.post(noticeCtrl.newNotice);
 
 router
-	.route('/:id')
+	.route('/noticias-por-id/:id')
 	.delete(noticeCtrl.deleteNotice)
 	.put(noticeCtrl.editNotice)
-	.get(noticeCtrl.getNews);
+	.get(noticeCtrl.getNotice);
+
+router
+    .route('/noticias-por-categoria/:categoria')
+    .get(noticeCtrl.findCategory);
+
 
 export default router;
