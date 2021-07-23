@@ -5,6 +5,9 @@ import path from 'path';
 import './db';
 import noticeRoutes from './routes/notice.routes';
 import categoryRoutes from './routes/category.routes';
+import photografyRoutes from './routes/photografy.routes';
+import teamRoutes from './routes/team.routes';
+import usersRoutes from './routes/users.routes';
 
 const app = express();
 
@@ -23,3 +26,6 @@ app.use(express.static(path.join(__dirname, '../public')));
 //routes
 app.use('/api/noticias', noticeRoutes);
 app.use('/api/categorias', categoryRoutes);
+app.use('/api/fotografias', photografyRoutes);
+app.use('/api/equipo', teamRoutes);
+app.use('/api/usuarios', usersRoutes);
