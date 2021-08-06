@@ -1,7 +1,9 @@
 import mongoose, {Schema} from 'mongoose';
 
 const photoSchema = new Schema({
-	urlFotografia: String
+	urlFotografia: {
+		type: String
+	}
 })
 
 const Photografy = mongoose.model('photografy', photoSchema);

@@ -39,7 +39,10 @@ const noticeSchema = new Schema({
 		type: Date,
 		required: true
 	},
-	destacada: String
+	destacada: {
+		type: String,
+		enum: ['off', 'on']
+	}	
 });
 
 const Notice = mongoose.model('notice', noticeSchema);

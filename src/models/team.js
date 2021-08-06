@@ -10,7 +10,9 @@ const teamSchema = new Schema({
 		required: true,
 		unique: true
 	},
-	puesto: String
+	puesto: {
+		type: String
+	}
 });
 
 const Team = mongoose.model('team', teamSchema);
