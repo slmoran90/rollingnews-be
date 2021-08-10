@@ -4,24 +4,20 @@ const noticeSchema = new Schema({
 	tituloNoticia: {
 		type: String,
 		maxlength: 150,
-		required: true,
-		unique: true
+		required: true
 	},
 	noticiaBreve: {
 		type: String,
 		maxlength: 200,
-		required: true,
-		unique: true
+		required: true
 	},
 	noticiaDetallada: {
 		type: String,
-		required: true,
-		unique: true
+		required: true
 	},
 	imagenPrincipal: {
 		type: String,
 		required: true
-		// unique: true
 	},
 	imagenSec: {
 		type: String
@@ -29,7 +25,6 @@ const noticeSchema = new Schema({
 	categoria: {
 		type: String,
 		required: true
-		// unique: true
 	},
 	autorNoticia: {
 		type: String,
@@ -37,6 +32,7 @@ const noticeSchema = new Schema({
 	},
 	fechaNoticia: {
 		type: Date,
+		//fecha_noticia: Date
 		required: true
 	},
 	destacada: {
@@ -44,6 +40,15 @@ const noticeSchema = new Schema({
 		enum: ['off', 'on']
 	}	
 });
+
+// noticeSchema.virtual('fecha_noticia')
+// .set(function(fecha){
+// 	this.fecha_noticia = new Date(fecha)
+// })
+
+// .get(function(){
+// 	return this.fecha_noticia.toISOString().substring(0,10)
+// });
 
 const Notice = mongoose.model('notice', noticeSchema);
 
