@@ -1,4 +1,4 @@
-import Suscrip from "../models/sucrip";
+import Suscrip from "../models/suscrip";
 
 const suscripCtrl = {};
 
