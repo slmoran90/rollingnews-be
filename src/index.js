@@ -9,7 +9,6 @@ import photografyRoutes from './routes/photografy.routes';
 import teamRoutes from './routes/team.routes';
 import usersRoutes from './routes/users.routes';
 import suscripRoutes from './routes/suscrip.routes';
-import contactoRoutes from './routes/contacto.routes';
 
 const app = express();
 
@@ -32,4 +31,3 @@ app.use('/api/fotografias', photografyRoutes);
 app.use('/api/equipo', teamRoutes);
 app.use('/api/usuarios', usersRoutes);
 app.use('/api/suscripcion', suscripRoutes);
-app.use('/api/contacto', contactoRoutes);

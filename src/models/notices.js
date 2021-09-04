@@ -32,7 +32,6 @@ const noticeSchema = new Schema({
 	},
 	fechaNoticia: {
 		type: Date,
-		//fecha_noticia: Date
 		required: true
 	},
 	destacada: {
